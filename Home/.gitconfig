@@ -1,0 +1,89 @@
+[user]
+	name = Losos, Radek (ADV D EU CZ AE CV 5)
+	email = radek.losos@siemens.com
+[dt]
+	update = D:\\temp\\git-dt-windows\\
+	defaultentity = bc
+	logfile = C:/Users/z0037rwe/AppData/Local/Temp/git-dt.log
+	verboselevel = 0
+[bc]
+	basedir = D:/git_bc
+	baseurl = ssh://venus.tfs.siemens.net:22/tfs/TIA/BC/_git
+	projectsconf = dt-projects.xml
+[cp]
+	baseurl = ssh://mercury.tfs.siemens.net:22/tfs/Schubert/FW/_git
+[pa]
+	baseurl = ssh://venus.tfs.siemens.net/tfs/TIA/SIMATIC%20NET/_git
+[core]
+	autocrlf = false
+[push]
+	default = current
+[pull]
+	rebase = true
+[alias]
+	hist = log --oneline --decorate --graph --all --full-history
+[dt "difftool"]
+	default = kdiff3
+	rhapsody = diffwrap
+[dt "mergetool"]
+	default = kdiff3
+	rhapsody = diffwrap
+	rhapsody-nogui = diffwrap-nogui
+[diff]
+	tool = dt-merge
+[difftool "dt-merge"]
+	cmd = dt-merge.sh --diff \"$MERGED\" \"$LOCAL\" \"$REMOTE\"
+[difftool]
+	prompt = false
+	writetotemp = true
+[merge]
+	tool = dt-merge
+[mergetool "dt-merge"]
+	cmd = dt-merge.sh --merge \"$MERGED\" \"$LOCAL\" \"$REMOTE\" \"$BASE\"
+[mergetool "diffwrap"]
+	trustExitCode = true
+	cmd = \"c:/Program Files/Git/usr/bin/DiffWrap.exe\" -xmerge -base \"$BASE\" -out \"$MERGED\" \"$LOCAL\" \"$REMOTE\"
+[mergetool "diffwrap-nogui"]
+	trustExitCode = true
+	cmd = \"c:/Program Files/Git/usr/bin/DiffWrap.exe\" -merge -base \"$BASE\" -out \"$MERGED\" \"$LOCAL\" \"$REMOTE\"
+[mergetool "diffmerge"]
+	trustExitCode = true
+	cmd = \"c:/Program Files/SourceGear/Common/DiffMerge/sgdm.exe\" -merge -result=\"$MERGED\" \"$LOCAL\" \"$BASE\" \"$REMOTE\"
+[mergetool "meld"]
+	trustExitCode = true
+	cmd = \"c:/Program Files (x86)/Meld/Meld.exe\" --auto-merge --output \"$MERGED\" \"$LOCAL\" \"$BASE\" \"$REMOTE\"
+[mergetool "kdiff3"]
+	trustExitCode = true
+	cmd = \"c:/Program Files/KDiff3/kdiff3.exe\" --auto -o \"$MERGED\" \"$BASE\" \"$LOCAL\" \"$REMOTE\"
+[mergetool]
+	prompt = false
+	keepBackup = false
+	keepTemporaries = false
+	writeToTemp = true
+[difftool "diffwrap"]
+	cmd = \"c:/Program Files/Git/usr/bin/DiffWrap.exe\" -xcompare \"$LOCAL\" \"$REMOTE\"
+[difftool "diffmerge"]
+	cmd = \"c:/Program Files/SourceGear/Common/DiffMerge/sgdm.exe\" \"$LOCAL\" \"$REMOTE\"
+[difftool "meld"]
+	cmd = \"c:/Program Files (x86)/Meld/Meld.exe\" \"$LOCAL\" \"$REMOTE\"
+[difftool "bc3"]
+	path = c:/Program Files (x86)/Beyond Compare 3/BCompare.exe
+[difftool "bc4"]
+	path = c:/Program Files (x86)/Beyond Compare 4/BCompare.exe
+[difftool "kdiff3"]
+	cmd = \"c:/Program Files/KDiff3/kdiff3.exe\" \"$LOCAL\" \"$REMOTE\"
+[mergetool "bc3"]
+	path = c:/Program Files (x86)/Beyond Compare 3/BCompare.exe
+[mergetool "bc4"]
+	path = c:/Program Files (x86)/Beyond Compare 4/BCompare.exe
+[bc "artifactory"]
+	bctools-server = https://captain.rtf.siemens.net/artifactory/
+	bctools-repo = ic-release-bc_tools-generic
+	bctools-name = bc_tools
+	devkits-server = https://captain.rtf.siemens.net/artifactory/
+	devkits-repo = ic_release_devkits_tools-internal-generic
+	devkits-name = devkits_tools
+[include]
+	path = ~/.gitconfig_extended
+[color "branch"]
+	upstream = blue yellow bold ul
